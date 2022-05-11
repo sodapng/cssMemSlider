@@ -9,23 +9,27 @@
 body {
   width: 100vw;
   height: 100vh;
+  background-color: antiquewhite;
 }
 
 .wrapper {
   max-width: 75rem;
   padding: 2.5rem;
-  margin: 0 auto;
+  margin: 5rem auto;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  background-color: antiquewhite;
 }
 
 .slider {
   overflow: hidden;
-  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.5rem;
 }
-
 .slider__inner {
-  transition: all 0.3s;
+  transition: all 0.5s;
   display: flex;
 }
 
@@ -37,16 +41,22 @@ body {
 .item__img {
   max-width: 100%;
   height: auto;
-  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+
+.item__text {
+  display: none;
+  animation: jello 2.5s;
 }
 
 .controls {
-  display: flex;
+  display: inline-flex;
+  align-self: flex-end;
+  transform: translateY(-75%);
 }
 
 label {
   padding: 0.5rem;
-  border: 1px solid red;
   cursor: pointer;
 }
 
@@ -59,7 +69,8 @@ label:hover > .btn {
   height: 1.2rem;
   background-color: blueviolet;
   pointer-events: fill;
-  transition: background-color 0.3s;
+  border-color: blueviolet;
+  transition: background-color 0.5s, border-color 0.5s;
   border-radius: 50%;
 }
 
@@ -68,7 +79,7 @@ label:hover > .btn {
 #slide3:checked ~ .controls > #btn3 > .btn,
 #slide4:checked ~ .controls > #btn4 > .btn {
   background-color: transparent;
-  border: 3px solid blueviolet;
+  border: 0.2rem solid blueviolet;
 }
 
 #slide1:checked ~ .controls > #btn1:hover > .btn,
@@ -76,7 +87,7 @@ label:hover > .btn {
 #slide3:checked ~ .controls > #btn3:hover > .btn,
 #slide4:checked ~ .controls > #btn4:hover > .btn {
   background-color: transparent;
-  border: 3px solid cadetblue;
+  border: 0.2rem solid cadetblue;
 }
 
 #slide1:checked ~ .slider__inner {
@@ -93,4 +104,43 @@ label:hover > .btn {
 
 #slide4:checked ~ .slider__inner {
   transform: translateX(-300%);
+}
+
+#slide1:checked ~ .slider__inner > :nth-child(1) .item__text,
+#slide2:checked ~ .slider__inner > :nth-child(2) .item__text,
+#slide3:checked ~ .slider__inner > :nth-child(3) .item__text,
+#slide4:checked ~ .slider__inner > :nth-child(4) .item__text {
+  display: inline-block;
+}
+
+@keyframes jello {
+  11.1% {
+    opacity: 0;
+    transform: none;
+  }
+  22.2% {
+    transform: skewX(-12.5deg) skewY(-12.5deg);
+  }
+  33.3% {
+    transform: skewX(6.25deg) skewY(6.25deg);
+  }
+  44.4% {
+    transform: skewX(-3.125deg) skewY(-3.125deg);
+  }
+  55.5% {
+    transform: skewX(1.5625deg) skewY(1.5625deg);
+  }
+  66.6% {
+    transform: skewX(-0.78125deg) skewY(-0.78125deg);
+  }
+  77.7% {
+    transform: skewX(0.390625deg) skewY(0.390625deg);
+  }
+  88.8% {
+    transform: skewX(-0.1953125deg) skewY(-0.1953125deg);
+  }
+  100% {
+    opacity: 1;
+    transform: none;
+  }
 }
