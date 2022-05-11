@@ -63,6 +63,22 @@ label:hover > .btn {
   border-radius: 50%;
 }
 
+#slide1:checked ~ .controls > #btn1 > .btn,
+#slide2:checked ~ .controls > #btn2 > .btn,
+#slide3:checked ~ .controls > #btn3 > .btn,
+#slide4:checked ~ .controls > #btn4 > .btn {
+  background-color: transparent;
+  border: 3px solid blueviolet;
+}
+
+#slide1:checked ~ .controls > #btn1:hover > .btn,
+#slide2:checked ~ .controls > #btn2:hover > .btn,
+#slide3:checked ~ .controls > #btn3:hover > .btn,
+#slide4:checked ~ .controls > #btn4:hover > .btn {
+  background-color: transparent;
+  border: 3px solid cadetblue;
+}
+
 #slide1:checked ~ .slider__inner {
   transform: translateX(0);
 }
