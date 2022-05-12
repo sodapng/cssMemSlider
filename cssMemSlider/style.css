@@ -19,7 +19,6 @@ body {
   margin: 2rem auto;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   background-color: white;
 }
 
@@ -39,7 +38,7 @@ body {
 }
 
 .item__img {
-  border: 1px solid rebeccapurple;
+  border: 0.3rem solid rebeccapurple;
   width: 100%;
   object-fit: contain;
   height: 31.25rem;
