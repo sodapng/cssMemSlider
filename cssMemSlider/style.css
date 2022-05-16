@@ -1,7 +1,4 @@
-[type='radio'] {
-  display: none;
-}
-
+[type='radio'],
 ::-webkit-scrollbar {
   display: none;
 }
@@ -49,8 +46,8 @@ body {
 }
 
 .item__text {
-  display: none;
-  animation: jello 2.5s;
+  display: inline-block;
+  visibility: hidden;
 }
 
 .controls {
@@ -94,6 +91,22 @@ label:hover > .btn {
   border: 0.2rem solid cadetblue;
 }
 
+#slide1:checked ~ .controls > #btn1:active > .btn,
+#slide2:checked ~ .controls > #btn2:active > .btn,
+#slide3:checked ~ .controls > #btn3:active > .btn,
+#slide4:checked ~ .controls > #btn4:active > .btn {
+  background-color: transparent;
+  border: 0.2rem solid tomato;
+}
+
+#btn1:active > .btn,
+#btn2:active > .btn,
+#btn3:active > .btn,
+#btn4:active > .btn {
+  background-color: tomato;
+  border: 0.2rem solid tomato;
+}
+
 #slide1:checked ~ .slider__inner {
   transform: translateX(0);
 }
@@ -114,7 +127,8 @@ label:hover > .btn {
 #slide2:checked ~ .slider__inner > :nth-child(2) .item__text,
 #slide3:checked ~ .slider__inner > :nth-child(3) .item__text,
 #slide4:checked ~ .slider__inner > :nth-child(4) .item__text {
-  display: inline-block;
+  visibility: visible;
+  animation: jello 2.5s;
 }
 
 @keyframes jello {
@@ -156,15 +170,12 @@ label:hover > .btn {
 
   .controls {
     align-self: center;
-    transform: translateY(-100%);
+    transform: translateY(-150%);
   }
 
   .item__img {
     height: 10.938rem;
     object-fit: cover;
+    margin-bottom: 2rem;
   }
-}
-
-video {
-  display: none;
 }
