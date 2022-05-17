@@ -1,5 +1,4 @@
-[type='radio'],
-::-webkit-scrollbar {
+[type='radio'] {
   display: none;
 }
 
